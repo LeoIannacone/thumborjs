@@ -1,6 +1,3 @@
-// core deps
-const crypto    = require('crypto');
-
 // locals
 const keys      = {};
 const consts    = {
@@ -339,16 +336,7 @@ class ThumborJS
      */
     gethash(operation)
     {
-        if (!this.seckeyProp)
-            return 'unsafe'; // no security key set
-
-        return crypto.createHmac('sha1', getSeckey(this.seckeyProp))
-                     .update(operation || this.getpath())
-                     .digest('base64')
-                     .replace(/\+/g, '-')
-                     .replace(/\//g, '_')
-                     ;
-
+        return 'unsafe'; // no security key set
     }
 
     /**
